@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CashFlow | ry.khiar</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="app">
+
+  <header class="header">
+    <h1>CashFlow ReyKhiar</h1>
+    <p>Kelola uang tanpa drama akhir bulan</p>
+  </header>
+
+  <section class="settings">
+    <button onclick="changeBalance()">💰 Ganti Saldo</button>
+    <button onclick="resetApp()">🗑️ Reset</button>
+  </section>
+
+  <section class="balance-card">
+    <span>Saldo Saat Ini</span>
+    <h2 id="balance">Rp 0</h2>
+  </section>
+
+  <section class="summary">
+
+    <div class="card income">
+      <p>Pemasukan</p>
+      <h3 id="income">Rp 0</h3>
+    </div>
+
+    <div class="card expense">
+      <p>Pengeluaran</p>
+      <h3 id="expense">Rp 0</h3>
+    </div>
+
+  </section>
+
+  <section class="form-card">
+    <h3>Tambah Transaksi</h3>
+
+    <form id="transaction-form">
+
+      <input type="text" id="description" placeholder="Contoh: Raja Ayam" required />
+
+      <input type="number" id="amount" placeholder="Nominal" required />
+
+      <select id="category">
+        <option value="Makan">🍜 Makan</option>
+        <option value="Transport">🚗 Transport</option>
+        <option value="Hiburan">🎮 Hiburan</option>
+        <option value="Kuliah">📚 Kuliah</option>
+        <option value="Belanja">🛍️ Belanja</option>
+        <option value="Lainnya">💰 Lainnya</option>
+      </select>
+
+      <select id="type">
+        <option value="income">Pemasukan</option>
+        <option value="expense">Pengeluaran</option>
+      </select>
+
+      <button type="submit">Tambah</button>
+
+    </form>
+  </section>
+
+  <section class="history-card">
+    <h3>Riwayat Transaksi</h3>
+    <ul id="transaction-list"></ul>
+  </section>
+
+  <section class="history-card">
+    <h3>Analisa Pengeluaran</h3>
+    <canvas id="expenseChart"></canvas>
+  </section>
+
+</div>
+
+<div class="modal" id="startupModal">
+  <div class="modal-box">
+    <h2>Masukkan Saldo Awal</h2>
+    <input type="number" id="startingBalance" placeholder="Contoh: 1500000">
+    <button onclick="saveStartingBalance()">Mulai</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
